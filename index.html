@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield</title>
+    <link rel="icon" href="image/8597533.png" type="image/png">
+    <meta name="description" content="Comprehensive cybersecurity protection including threat assessment, penetration testing, and 24/7 monitoring for businesses of all sizes.">
+    <meta name="keywords" content="cybersecurity, network security, data protection, ethical hacking, penetration testing, security consulting">
+    <meta name="author" content="CyberShield Security">
+    
+    <!-- Open Graph / Social Sharing Meta -->
+    <meta property="og:title" content="CyberShield | Enterprise Cybersecurity Solutions">
+    <meta property="og:description" content="Comprehensive cybersecurity protection for your business">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cybershield.example.com">
+    <meta property="og:image" content="https://cybershield.example.com/images/social-preview.jpg">
+    <meta property="og:image:alt" content="CyberShield Security Protection">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0ea5e9;
+            --accent-light: #38bdf8;
+            --text: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --success: #10b981;
+            --error: #ef4444;
+            --warning: #f59e0b;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px;
+            z-index: 1000;
+            transition: top 0.3s;
+            font-weight: 600;
+            border-radius: 0 0 4px 0;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid var(--text);
+            outline-offset: 2px;
+        }
+        
+        /* Layout Components */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 90px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: var(--secondary);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1.05rem;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--text);
+            outline: none;
+        }
+        
+        .nav-links a svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a365d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--text-secondary);
+        }
+        
+        .highlight {
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            gap: 8px;
+        }
+        
+        .btn:hover,
+        .btn:focus {
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            color: var(--text);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+            outline: none;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover,
+        .btn-outline:focus {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        /* Card Components */
+        .card {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 3px solid var(--accent);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.2);
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card h3 i {
+            color: var(--accent);
+        }
+        
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .grid-cols-1 {
+            grid-template-columns: 1fr;
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        /* About Section */
+        .about-content {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        /* Features Section */
+        .feature {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-bottom: 3px solid var(--accent);
+            height: 100%;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-light);
+        }
+        
+        /* Testimonials */
+        .testimonial {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            height: 100%;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(14, 165, 233, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--accent-light);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            background: var(--secondary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-header {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .pricing-header .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .pricing-header .period {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .pricing-features {
+            padding: 30px;
+            flex-grow: 1;
+        }
+        
+        .pricing-features ul {
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(203, 213, 225, 0.1);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-features li i {
+            color: var(--accent);
+        }
+        
+        .pricing-footer {
+            padding: 0 30px 30px;
+            text-align: center;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--primary);
+            border: 1px solid rgba(203, 213, 225, 0.2);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Form Validation */
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: var(--error);
+        }
+        
+        .error-message {
+            color: var(--error);
+            font-size: 0.875rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .success-message {
+            background: var(--success);
+            color: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 60px 0 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-light);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-section p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--text);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover,
+        .social-links a:focus {
+            background: var(--accent);
+            transform: translateY(-3px);
+            outline: none;
+        }
+        
+        .quick-links-list {
+            list-style: none;
+        }
+        
+        .quick-links-list li {
+            margin-bottom: 12px;
+        }
+        
+        .quick-links-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .quick-links-list a:hover,
+        .quick-links-list a:focus {
+            color: var(--accent-light);
+            outline: none;
+        }
+        
+        .quick-links-list a i {
+            width: 18px;
+            text-align: center;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Security Link */
+        .security-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .security-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Loading State */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            gap: 20px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(56, 189, 248, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        .loading p {
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px;
+            transition: var(--transition);
+        }
+        
+        .menu-toggle:hover,
+        .menu-toggle:focus {
+            color: var(--accent-light);
+            outline: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: var(--secondary);
+                border-radius: var(--border-radius);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.781);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                width: calc(100% - 40px);
+                max-width: 300px;
+                z-index: 100;
+                transform: translateX(150%);
+                transition: transform 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .hero {
+                min-height: 80vh;
+            }
+            
+            .grid-cols-2,
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content,
+            .contact-form {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 14px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="#" class="logo">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>CyberShield</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li>
+                        <a href="#home" class="active">
+                            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M10 2L2 8.5V18H7V13H13V18H18V8.5L10 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about">
+                            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+                                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M10 2C12.5 5.5 12.5 14.5 10 18" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ourteam">
+                            <svg width="18" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                            Our Team
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services">
+                            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+                                <rect x="4" y="2" width="12" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M7 6H13" stroke="currentColor" stroke-width="2"/>
+                                <path d="M7 10H13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#testimonials">
+                            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Testimonials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#payment">
+                            <svg width="18" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                                <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M3 8H17" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="7" cy="12" r="1" fill="currentColor"/>
+                            </svg>
+                            Payment
+                        </a>
+                    </li>                    
+                    <li>
+                        <a href="#contact">
+                            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Advanced Cybersecurity Protection</h1>
+                <p>We safeguard your digital assets with cutting-edge security solutions tailored to your business needs. Our team of certified experts provides comprehensive protection against evolving cyber threats.</p>
+                <div class="btn-group">
+                    <a href="#services" class="btn">
+                        <i class="fas fa-shield-alt"></i> Our Services
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-phone"></i> Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- About Section -->
+            <section id="about">
+                <div class="section-title">
+                    <h2>About Us</h2>
+                </div>
+                <div class="about-content">
+                    <p>In today's interconnected world, cybersecurity isn't optional—<span class="highlight">it's essential</span>. CyberShield has established itself as a leader in digital protection, offering enterprise-grade<span class="highlight"> security solutions</span> to businesses of all sizes. Our proactive approach identifies vulnerabilities before they can be exploited, ensuring your operations remain secure and compliant.</p>
+                </div>
+
+                <div class="about-content">
+                    <p>At CyberShield, we believe in a proactive approach to cybersecurity. Our team of experts <span class="highlight">continuously monitors</span> the threat landscape, ensuring that our clients are always one step ahead of potential <span class="highlight">attacks.</span> We prioritize transparency and collaboration, working closely with our clients to develop <span class="highlight">customized security strategies</span> that align with their unique business goals.</p>
+                </div>
+
+                <div class="grid grid-cols-2">
+                    <div class="card">
+                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                        <p>To deliver intelligent, ethical cybersecurity solutions that protect businesses from evolving digital threats while enabling growth and innovation in a secure environment.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                        <p>To create a digital landscape where organizations can operate with confidence, knowing their assets, data, and reputation are protected by the most advanced security measures available.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-users"></i> Who We Are</h3>
+                        <p>Founded by a team of cybersecurity veterans, CyberShield is dedicated to providing the highest level of security services. Our mission is to empower businesses with the tools and knowledge they need to defend against cyber threats, while our vision is to create a safer digital environment for all.</p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-trophy"></i> Our Achievements</h3>
+                        <p>With over 500 successful security implementations, CyberShield has been recognized as a top cybersecurity provider by industry leaders. Our commitment to excellence has earned us numerous awards and certifications, solidifying our reputation as a trusted partner in digital security.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us Section -->
+            <section id="why-us">
+                <div class="section-title">
+                    <h2>Why Choose CyberShield</h2>
+                </div>
+                
+                <div class="grid grid-cols-3">
+                    <div class="feature">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Certified Experts</h3>
+                        <p>Our team holds top industry certifications (CISSP, CISM, CEH) with an average of 10+ years experience in enterprise security.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7 Protection</h3>
+                        <p>Round-the-clock monitoring and rapid response to ensure threats are neutralized before they impact your operations.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Custom Solutions</h3>
+                        <p>Tailored security strategies that align with your specific business requirements and risk profile.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Proactive Defense</h3>
+                        <p>We don't just react to threats—we anticipate them using advanced threat intelligence and predictive analytics.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <h3>Compliance Ready</h3>
+                        <p>Full compliance with GDPR, HIPAA, PCI-DSS, and other regulatory frameworks to keep your business protected.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Trusted Partner</h3>
+                        <p>We build long-term relationships based on transparency, reliability, and measurable results.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Services Section -->
+            <section id="services">
+                <div class="section-title">
+                    <h2>Our Security Services</h2>
+                </div>
+                
+                <div class="grid grid-cols-3">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Essential Protection</h3>
+                            <div class="price">$199<span class="period">/month</span></div>
+                        </div>
+                        <div class="pricing-features">
+                            <li style="display: flex; gap: 15px; align-items: center; justify-content: center; padding-bottom: 12px;">
+                                <img src="image/binance.svg" alt="Binance" style="height:13px;vertical-align:middle;">
+                                <img src="image/bybit-1.svg" alt="Bybit" style="height:40px;vertical-align:middle;">
+                                <img src="image/images (3).png" alt="Bitget" style="height:40px;vertical-align:middle;">
+                                <img src="image/BCO.a1217b8b-198d-4259-8b66-f7538910b86f.png" alt="bKash" style="height:42px;vertical-align:middle;">
+                                <img src="image/Nagad-Logo.wine.svg" alt="Nagad" style="height:28px;vertical-align:middle;">
+                            </li>                            
+                            <ul>
+                                <li><i class="fas fa-check"></i> Vulnerability Assessments</li>
+                                <li><i class="fas fa-check"></i> Firewall Configuration</li>
+                                <li><i class="fas fa-check"></i> Security Awareness Training</li>
+                                <li><i class="fas fa-check"></i> Monthly Security Reports</li>
+                                <li><i class="fas fa-check"></i> Email Support</li>
+                                <li><i class="fas fa-check"></i> Basic Threat Monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#contact" class="btn">Get Started</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Business Security</h3>
+                            <div class="price">$599<span class="period">/month</span></div>
+                        </div>
+                        <div class="pricing-features">
+                            <li style="display: flex; gap: 15px; align-items: center; justify-content: center; padding-bottom: 12px;">
+                                <img src="image/binance.svg" alt="Binance" style="height:13px;vertical-align:middle;">
+                                <img src="image/bybit-1.svg" alt="Bybit" style="height:40px;vertical-align:middle;">
+                                <img src="image/images (3).png" alt="Bitget" style="height:40px;vertical-align:middle;">
+                                <img src="image/BCO.a1217b8b-198d-4259-8b66-f7538910b86f.png" alt="bKash" style="height:42px;vertical-align:middle;">
+                                <img src="image/Nagad-Logo.wine.svg" alt="Nagad" style="height:28px;vertical-align:middle;">
+                            </li>                            
+                            <ul>
+                                <li><i class="fas fa-check"></i> Everything in Essential</li>
+                                <li><i class="fas fa-check"></i> Penetration Testing</li>
+                                <li><i class="fas fa-check"></i> Advanced Threat Detection</li>
+                                <li><i class="fas fa-check"></i> 24/7 Security Monitoring</li>
+                                <li><i class="fas fa-check"></i> Incident Response</li>
+                                <li><i class="fas fa-check"></i> Priority Support</li>
+                                <li><i class="fas fa-check"></i> Compliance Assistance</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#contact" class="btn">Get Started</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Enterprise Suite</h3>
+                            <div class="price">Custom</div>
+                        </div>
+                        <div class="pricing-features">
+                            <li style="display: flex; gap: 15px; align-items: center; justify-content: center; padding-bottom: 12px;">
+                                <img src="image/binance.svg" alt="Binance" style="height:13px;vertical-align:middle;">
+                                <img src="image/bybit-1.svg" alt="Bybit" style="height:40px;vertical-align:middle;">
+                                <img src="image/images (3).png" alt="Bitget" style="height:40px;vertical-align:middle;">
+                                <img src="image/BCO.a1217b8b-198d-4259-8b66-f7538910b86f.png" alt="bKash" style="height:42px;vertical-align:middle;">
+                                <img src="image/Nagad-Logo.wine.svg" alt="Nagad" style="height:28px;vertical-align:middle;">
+                            </li>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Everything in Business</li>
+                                <li><i class="fas fa-check"></i> Dedicated Security Team</li>
+                                <li><i class="fas fa-check"></i> Custom Security Solutions</li>
+                                <li><i class="fas fa-check"></i> Onsite Support</li>
+                                <li><i class="fas fa-check"></i> Security Architecture</li>
+                                <li><i class="fas fa-check"></i> Executive Protection</li>
+                                <li><i class="fas fa-check"></i> Continuous Red Teaming</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#contact" class="btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials">
+                <div class="section-title">
+                    <h2>What Our Clients Say</h2>
+                </div>
+                
+                <div class="grid grid-cols-3">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>After a devastating data breach, CyberShield helped us rebuild our security infrastructure from the ground up. Their 24/7 monitoring has given us peace of mind and protected our customer data.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson, CEO of SecureRetail" loading="lazy">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>CEO of SecureRetail</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>The security awareness training transformed our employees from potential security risks to our first line of defense against phishing and social engineering attacks.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen, CTO at HealthData Systems" loading="lazy">
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>CTO at HealthData</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>CyberShield's penetration testing identified critical vulnerabilities in our e-commerce platform that we didn't know existed. Their work helped us achieve PCI compliance ahead of schedule.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez, Director at TechSolutions" loading="lazy">
+                            <div class="author-info">
+                                <h4>Emily Rodriguez</h4>
+                                <p>Director at TechSolutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <div class="section-title">
+                    <h2>Get in Touch</h2>
+                </div>
+
+                <div class="contact-form">
+                    <div class="success-message" id="successMessage" style="display: none;">
+                        Thank you for your message! We'll contact you within 24 hours.
+                    </div>
+
+                    <form id="contactForm" method="POST" novalidate>
+                        <input type="hidden" name="_token" id="csrfToken" value="csrf-token-placeholder">
+
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required aria-required="true">
+                            <div class="error-message" id="nameError">Please enter your name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                            <div class="error-message" id="emailError">Please enter a valid email</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select id="paymentMethod" name="paymentMethod" aria-describedby="paymentHelp">
+                                <option value="">Select a payment method</option>
+                                <option value="binance">Binance</option>
+                                <option value="bybit">Bybit</option>
+                                <option value="bitget">Bitget</option>
+                                <option value="bkash">Bkash</option>
+                                <option value="nagad">Nagad</option>
+                            </select>
+                            <div class="error-message" id="paymentError">Please select a payment method</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceInterest">Service Interested In</label>
+                            <select id="serviceInterest" name="serviceInterest" aria-describedby="serviceHelp">
+                                <option value="">Select a service</option>
+                                <option value="essential">Essential Protection</option>
+                                <option value="business">Business Security</option>
+                                <option value="enterprise">Enterprise Suite</option>
+                                <option value="custom">Custom Solution</option>
+                                <option value="consultation">Security Consultation</option>
+                            </select>
+                            <div class="error-message" id="serviceInterestError">Please select a service</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required aria-required="true"></textarea>
+                            <div class="error-message" id="messageError">Please enter your message</div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CyberShield</h3>
+                    <p style="margin-bottom: 18px; color: var(--text-secondary); font-size: 1.12rem; background: linear-gradient(90deg, rgba(14,165,233,0.10) 0%, rgba(56,189,248,0.10) 100%); border-radius: 8px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(14,165,233,0.10); font-weight: 500;">
+                        <i class="fas fa-shield-alt" style="color: var(--accent); margin-right: 10px; font-size: 1.3rem;" aria-hidden="true"></i>
+                        <span style="color: var(--accent-light); font-weight: 600;">Enterprise-grade cybersecurity solutions</span>
+                        protecting businesses from evolving digital threats since <span style="color: var(--accent); font-weight: 600;">2025</span>.
+                        <br>
+                        <span style="color: var(--text-secondary); font-size: 1rem;">
+                        
+                        <span style="color: var(--text-secondary); font-weight: 600;">We offer vulnerability assessments</span>, penetration testing,<span class="highlight"> 24/7 threat monitoring</span>, compliance consulting, and <span class="highlight">custom security strategies</span> for organizations of all sizes. Our certified experts ensure your data, assets, and reputation remain protected in an ever-changing cyber landscape.
+                        </span></span>
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/jahidads/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/jahidhasan_tw" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/jahidads" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://www.youtube.com/@jahidads" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div style="background: linear-gradient(90deg, rgba(14,165,233,0.07) 0%, rgba(56,189,248,0.07) 100%); border-radius: 10px; padding: 18px 16px; box-shadow: 0 2px 8px rgba(14,165,233,0.08);">
+                        <p style="margin-bottom: 14px; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 1.08rem; background: linear-gradient(90deg, rgba(14,165,233,0.10) 0%, rgba(56,189,248,0.10) 100%); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(14,165,233,0.08);">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent); min-width: 22px; font-size: 1.3rem;" aria-hidden="true"></i>
+                            <span style="font-weight: 600; color: var(--accent-light); letter-spacing: 0.5px;">Ekorgara Road, Bottoli 5900</span>
+                        </p>
+                        <p style="margin-bottom: 14px; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 1.08rem; background: linear-gradient(90deg, rgba(14,165,233,0.10) 0%, rgba(56,189,248,0.10) 100%); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(14,165,233,0.08);">
+                            <i class="fas fa-directions" style="color: var(--accent); min-width: 22px; font-size: 1.3rem;" aria-hidden="true"></i> 
+                            <a href="https://maps.app.goo.gl/cf6VyhPwozb5zUUV8" class="map-link" target="_blank" rel="noopener" style="color: var(--accent-light); text-decoration: none; font-weight: 600; font-size: 1.08rem; transition: color 0.2s;">
+                                Get Directions
+                            </a>
+                        </p>
+                        </p>
+                        <p style="margin-bottom: 14px; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 1.08rem; background: linear-gradient(90deg, rgba(14,165,233,0.10) 0%, rgba(56,189,248,0.10) 100%); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(14,165,233,0.08);">
+                            <i class="fas fa-phone" style="color: var(--accent); min-width: 22px; font-size: 1.3rem;"></i>
+                            <a href="tel:+8801308839759" style="color: var(--accent-light); text-decoration: none; font-weight: 600; font-size: 1.08rem; transition: color 0.2s;">
+                                +8801308839759
+                            </a>
+                        </p>
+                        <p style="margin-bottom: 14px; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 1.08rem; background: linear-gradient(90deg, rgba(14,165,233,0.10) 0%, rgba(56,189,248,0.10) 100%); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(14,165,233,0.08);">
+                            <i class="fas fa-envelope" style="color: var(--accent); min-width: 22px; font-size: 1.3rem;"></i>
+                            <a href="mailto:jahidhasan2.0ff@gmail.com" style="color: var(--accent-light); text-decoration: none; font-weight: 600; font-size: 1.08rem; transition: color 0.2s;">
+                                jahidhasan2.0ff@gmail.com
+                            </a>
+                        </p>
+
+                        <div class="number-item whatsapp" style="display: flex; align-items: center; gap: 10px; background: linear-gradient(90deg, rgba(14,165,233,0.10) 0%, rgba(56,189,248,0.10) 100%); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(37,211,102,0.08);">
+                          <i class="fab fa-whatsapp" aria-hidden="true" style="color: #25D366; font-size: 1.5rem; min-width: 22px;"></i>
+                          <a href="https://wa.me/8801308839759" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600; text-decoration: none; font-size: 1.08rem; transition: color 0.2s;">
+                            Chat on WhatsApp
+                          </a>
+                        </div>
+                   </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="quick-links-list" style="background: linear-gradient(90deg, rgba(14,165,233,0.07) 0%, rgba(56,189,248,0.07) 100%); border-radius: 10px; padding: 18px 16px; box-shadow: 0 2px 8px rgba(14,165,233,0.08);">
+                        <li>
+                            <a href="https://jahidads.github.io/business-portfolio/" style="padding: 8px 0; border-bottom: 1px solid rgba(56,189,248,0.08);">
+                                <i class="fas fa-chevron-right" style="color: var(--accent);"></i> Business Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://jahidads.github.io/Cyber-Security/" style="padding: 8px 0; border-bottom: 1px solid rgba(56,189,248,0.08);">
+                                <i class="fas fa-chevron-right" style="color: var(--accent);"></i> Cyber Security
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://jahidads.github.io/Developer-portfolio/" style="padding: 8px 0; border-bottom: 1px solid rgba(56,189,248,0.08);">
+                                <i class="fas fa-chevron-right" style="color: var(--accent);"></i> Developer Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://jahidads.github.io/my-portfolio/" style="padding: 8px 0; border-bottom: 1px solid rgba(56,189,248,0.08);">
+                                <i class="fas fa-chevron-right" style="color: var(--accent);"></i> My Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://jahidads.github.io/Web-Developer/" style="padding: 8px 0; border-bottom: 1px solid rgba(56,189,248,0.08);">
+                                <i class="fas fa-chevron-right" style="color: var(--accent);"></i> Web Developer
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://jahidads.github.io/Resume-Portfolio/" style="padding: 8px 0;">
+                                <i class="fas fa-chevron-right" style="color: var(--accent);"></i> Resume Portfolio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright" style="text-align:center; padding: 24px 0; border-top: 1px solid rgba(56,189,248,0.2); color: var(--text-secondary); font-size: 1rem; background: linear-gradient(90deg, rgba(14,165,233,0.05) 0%, rgba(56,189,248,0.05) 100%);">
+                <p>
+                    &copy; <span style="color:var(--accent-light);font-weight:600;">Design by 💨Jahid Hasan</span>
+                    <br>
+                </p>
+                <a href="https://facebook.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;margin-top:10px;background:var(--accent);color:var(--primary);border-radius:24px;padding:8px 18px;font-weight:600;font-size:1rem;text-decoration:none;transition:background 0.2s;">
+                    <i class="fab fa-facebook-f" style="margin-right:8px;"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Security Policy Link -->
+    <a href="https://www.geeksforgeeks.org/cyber-security-policy/" class="security-link" target="_blank" rel="noopener">
+        <i class="fas fa-lock"></i> Security Policy
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Form Validation
+        const form = document.getElementById("contactForm");
+        const successMessage = document.getElementById("successMessage");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // prevent default form submission
+
+            let isValid = true;
+
+            // Clear all previous error messages
+            document.querySelectorAll(".error-message").forEach(el => {
+                el.style.display = "none";
+            });
+
+            // Full Name validation
+            const name = form.name.value.trim();
+            if (name === "") {
+                document.getElementById("nameError").style.display = "block";
+                isValid = false;
+            }
+
+            // Email validation
+            const email = form.email.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").style.display = "block";
+                isValid = false;
+            }
+
+            // Payment Method validation
+            const paymentMethod = form.paymentMethod.value;
+            if (paymentMethod === "") {
+                document.getElementById("paymentError").style.display = "block";
+                isValid = false;
+            }
+
+            // Service Interested In validation
+            const serviceInterest = form.serviceInterest.value;
+            if (serviceInterest === "") {
+                document.getElementById("serviceInterestError").style.display = "block";
+                isValid = false;
+            }
+
+            // Message validation
+            const message = form.message.value.trim();
+            if (message === "") {
+                document.getElementById("messageError").style.display = "block";
+                isValid = false;
+            }
+
+            // If all is valid, show success message
+            if (isValid) {
+                successMessage.style.display = "block";
+                form.reset(); // clear the form
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 5000);
+            }
+        });
+            
+            // Generate CSRF token (in a real app, this would come from the server)
+            document.getElementById('csrfToken').value = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            
+            // Intersection Observer for animations
+            const animateElements = document.querySelectorAll('.feature, .card, .testimonial, .pricing-card, .section-title');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+            
+            // Focus management for accessibility
+            document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
+                el.addEventListener('focus', function() {
+                    this.style.outline = '2px solid ' + getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                    this.style.outlineOffset = '2px';
+                });
+                
+                el.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+            });
+        });
+        
+        // Load non-critical CSS
+        function loadCSS(href) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            document.head.appendChild(link);
+        }
+        
+        window.addEventListener('load', function() {
+            // Load any additional CSS or resources
+        });
+    </script>
+</body>
+</html>
