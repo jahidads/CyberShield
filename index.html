@@ -1128,9 +1128,6 @@
                 </div>
 
                 <div class="contact-form">
-                    <div class="success-message" id="successMessage" style="display: none;">
-                        Thank you for your message! We'll contact you within 24 hours.
-                    </div>
 
                     <form id="contactForm" method="POST" novalidate>
                         <input type="hidden" name="_token" id="csrfToken" value="csrf-token-placeholder">
@@ -1178,7 +1175,9 @@
                             <textarea id="message" name="message" required aria-required="true"></textarea>
                             <div class="error-message" id="messageError">Please enter your message</div>
                         </div>
-
+                         <div class="success-message" id="successMessage" style="display: none;">
+                        Thank you for your message! We'll contact you within 24 hours.
+                    </div>
                         <div class="form-actions">
                             <button type="submit" class="btn">
                                 <i class="fas fa-paper-plane"></i> Send Message
